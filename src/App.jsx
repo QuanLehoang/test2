@@ -7,7 +7,6 @@ import LanguageGate from "./components/LanguageGate";
 import { copy } from "./utils/content";
 
 export default function App() {
-
     const [lang, setLang] = useState(
         localStorage.getItem("lang") || "vi"
     );
@@ -15,7 +14,9 @@ export default function App() {
     // Luôn hiện màn chọn ngôn ngữ khi mở web
     const [entered, setEntered] = useState(false);
 
-    const [dark, setDark] = useState(true);
+    // Chỉ sử dụng giao diện tối
+    const dark = true;
+
     const [music, setMusic] = useState(false);
     const [fireworks, setFireworks] = useState(true);
     const [progress, setProgress] = useState(0);
@@ -27,43 +28,34 @@ export default function App() {
     ========================= */
 
     useEffect(() => {
-
         AOS.init({
             duration: 900,
             once: true,
             easing: "ease-out-cubic",
             offset: 80,
         });
-
     }, []);
 
     /* =========================
        Dark Mode
+       Luôn bật giao diện tối
     ========================= */
 
     useEffect(() => {
-
-        document.documentElement.classList.toggle(
-            "dark",
-            dark
-        );
-
-    }, [dark]);
+        document.documentElement.classList.add("dark");
+    }, []);
 
     /* =========================
        Smooth Scroll
     ========================= */
 
     useEffect(() => {
-
         $('a[href^="#"]').on(
             "click.smooth",
             function (e) {
-
                 const target = $(this.getAttribute("href"));
 
                 if (target.length) {
-
                     e.preventDefault();
 
                     $("html, body").animate(
@@ -73,18 +65,13 @@ export default function App() {
                         },
                         500
                     );
-
                 }
-
             }
         );
 
         return () => {
-
             $('a[href^="#"]').off("click.smooth");
-
         };
-
     }, []);
 
     /* =========================
@@ -92,9 +79,7 @@ export default function App() {
     ========================= */
 
     useEffect(() => {
-
         const update = () => {
-
             const max =
                 document.documentElement.scrollHeight -
                 window.innerHeight;
@@ -104,7 +89,6 @@ export default function App() {
                     ? (window.scrollY / max) * 100
                     : 0
             );
-
         };
 
         update();
@@ -122,7 +106,6 @@ export default function App() {
                 "scroll",
                 update
             );
-
     }, []);
 
     /* =========================
@@ -130,13 +113,11 @@ export default function App() {
     ========================= */
 
     useEffect(() => {
-
         let context;
         let osc;
         let gain;
 
         if (music) {
-
             context = new AudioContext();
 
             osc = context.createOscillator();
@@ -151,16 +132,12 @@ export default function App() {
             gain.connect(context.destination);
 
             osc.start();
-
         }
 
         return () => {
-
             osc?.stop();
             context?.close();
-
         };
-
     }, [music]);
 
     /* =========================
@@ -168,24 +145,19 @@ export default function App() {
     ========================= */
 
     if (!entered) {
-
         return (
             <LanguageGate
                 onSelect={(language) => {
-
                     localStorage.setItem(
                         "lang",
                         language
                     );
 
                     setLang(language);
-
                     setEntered(true);
-
                 }}
             />
         );
-
     }
 
     /* =========================
@@ -193,19 +165,13 @@ export default function App() {
     ========================= */
 
     return (
-
         <div
             className="
                 min-h-screen
-                bg-flag-cream
-                text-flag-dark
-                transition-all
-                duration-500
-                dark:bg-[#111111]
-                dark:text-white
+                bg-[#111111]
+                text-white
             "
         >
-
             <div
                 className="progress-bar"
                 style={{
@@ -217,16 +183,16 @@ export default function App() {
                 t={t}
                 lang={lang}
                 setLang={setLang}
+
                 dark={dark}
-                setDark={setDark}
+                setDark={() => {}}
+
                 music={music}
                 setMusic={setMusic}
+
                 fireworks={fireworks}
                 setFireworks={setFireworks}
             />
-
         </div>
-
     );
-
 }

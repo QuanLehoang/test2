@@ -5,12 +5,15 @@ export default function Documentary({ lang = "vi" }) {
 
     useEffect(() => {
         const section = sectionRef.current;
+
         if (!section) return;
 
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    section.classList.add("documentary-visible");
+                    section.classList.add(
+                        "documentary-visible"
+                    );
                 }
             },
             {
@@ -20,12 +23,15 @@ export default function Documentary({ lang = "vi" }) {
 
         observer.observe(section);
 
-        return () => observer.disconnect();
+        return () => {
+            observer.disconnect();
+        };
     }, []);
 
     const text = {
         vi: {
             kicker: "TƯ LIỆU",
+
             title: (
                 <>
                     Tuyên ngôn
@@ -37,12 +43,14 @@ export default function Documentary({ lang = "vi" }) {
                     tộc
                 </>
             ),
+
             description:
                 "Một không gian xem phim tư liệu trang trọng, tối ưu tỷ lệ khung hình và giữ trải nghiệm mượt trên mọi thiết bị.",
         },
 
         en: {
             kicker: "DOCUMENTARY",
+
             title: (
                 <>
                     The Declaration
@@ -54,6 +62,7 @@ export default function Documentary({ lang = "vi" }) {
                     Journey
                 </>
             ),
+
             description:
                 "A dignified documentary viewing space, optimized for the correct aspect ratio and a smooth experience across all devices.",
         },
@@ -65,14 +74,15 @@ export default function Documentary({ lang = "vi" }) {
         <section
             ref={sectionRef}
             className="documentary-section"
-            id="documentary"
+            id="documents"
         >
+            {/* Background glow */}
             <div className="documentary-glow documentary-glow-one" />
+
             <div className="documentary-glow documentary-glow-two" />
 
             <div className="container max-w-content">
                 <div className="documentary-card">
-
                     {/* LEFT */}
                     <div className="documentary-content">
                         <span className="documentary-kicker">
@@ -100,7 +110,15 @@ export default function Documentary({ lang = "vi" }) {
                                         ? "Tuyên ngôn Độc lập và hành trình dân tộc"
                                         : "The Declaration of Independence and the Nation's Journey"
                                 }
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allow="
+                                    accelerometer;
+                                    autoplay;
+                                    clipboard-write;
+                                    encrypted-media;
+                                    gyroscope;
+                                    picture-in-picture;
+                                    web-share
+                                "
                                 allowFullScreen
                             />
                         </div>

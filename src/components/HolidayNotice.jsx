@@ -80,41 +80,28 @@ export default function NationalDayNotice({ lang = "vi" }) {
                     hover:shadow-[0_25px_70px_rgba(255,205,0,0.10)]
                 "
             >
-
-                {/* =================================
-                    BACKGROUND GLOW
-                ================================== */}
+                {/* BACKGROUND GLOW */}
 
                 <div
                     className="
                         pointer-events-none
                         absolute
-
                         -top-24
                         left-1/2
-
                         h-48
                         w-48
-
                         -translate-x-1/2
-
                         rounded-full
-
                         bg-yellow-400/10
-
                         blur-3xl
-
                         transition-all
                         duration-700
-
                         group-hover:scale-150
                         group-hover:bg-yellow-400/15
                     "
                 />
 
-                {/* =================================
-                    LIGHT SWEEP
-                ================================== */}
+                {/* LIGHT SWEEP */}
 
                 <div
                     className="
@@ -122,27 +109,20 @@ export default function NationalDayNotice({ lang = "vi" }) {
                         absolute
                         top-0
                         left-[-120%]
-
                         h-full
                         w-[60%]
-
                         skew-x-[-20deg]
-
                         bg-gradient-to-r
                         from-transparent
                         via-white/10
                         to-transparent
-
                         transition-all
                         duration-[1200ms]
-
                         group-hover:left-[140%]
                     "
                 />
 
-                {/* =================================
-                    CONTENT
-                ================================== */}
+                {/* CONTENT */}
 
                 <div className="relative z-10">
 
@@ -151,21 +131,15 @@ export default function NationalDayNotice({ lang = "vi" }) {
                     <div
                         className="
                             mb-3
-
                             text-xs
                             md:text-sm
-
                             font-bold
                             tracking-[0.16em]
-
                             text-white/65
-
                             uppercase
                         "
                     >
-                        {isEnglish
-                            ? "NOTICE"
-                            : "THÔNG BÁO"}
+                        {isEnglish ? "NOTICE" : "THÔNG BÁO"}
                     </div>
 
                     {/* TITLE */}
@@ -176,15 +150,11 @@ export default function NationalDayNotice({ lang = "vi" }) {
                             sm:text-4xl
                             md:text-5xl
                             lg:text-6xl
-
                             font-black
                             leading-tight
-
                             text-white
-
                             transition-all
                             duration-500
-
                             group-hover:text-yellow-300
                         "
                     >
@@ -198,33 +168,22 @@ export default function NationalDayNotice({ lang = "vi" }) {
                     <p
                         className="
                             mt-2
-
                             max-w-5xl
-
                             text-sm
                             sm:text-base
                             md:text-lg
-
                             leading-relaxed
-
                             text-white/65
                         "
                     >
                         {isEnglish
-                            ? "The proposed holiday is Wednesday, September 2, 2026. Agencies, schools, and businesses should follow the official holiday schedule announced by the competent authorities."
-                            : "Lịch nghỉ dự kiến: Thứ Tư 02/09/2026. Các cơ quan, trường học và doanh nghiệp thực hiện theo lịch nghỉ chính thức được cơ quan có thẩm quyền công bố."}
+                            ? "For public employees and civil servants, the 2026 National Day holiday lasts 5 consecutive days, from Saturday, August 29 to Wednesday, September 2, 2026."
+                            : "Theo phương án nghỉ lễ Quốc khánh năm 2026, cán bộ, công chức, viên chức được nghỉ 5 ngày liên tục từ Thứ Bảy 29/08 đến hết Thứ Tư 02/09/2026."}
                     </p>
 
-                    {/* =================================
-                        INFORMATION
-                    ================================== */}
+                    {/* INFORMATION */}
 
-                    <div
-                        className="
-                            mt-6
-                            space-y-3
-                        "
-                    >
+                    <div className="mt-6 space-y-3">
 
                         {/* ITEM 1 */}
 
@@ -233,16 +192,12 @@ export default function NationalDayNotice({ lang = "vi" }) {
                                 flex
                                 items-center
                                 gap-3
-
                                 text-sm
                                 md:text-base
-
                                 font-semibold
                                 text-white/85
-
                                 transition-all
                                 duration-300
-
                                 hover:translate-x-2
                                 hover:text-yellow-300
                             "
@@ -255,11 +210,8 @@ export default function NationalDayNotice({ lang = "vi" }) {
                                     shrink-0
                                     items-center
                                     justify-center
-
                                     rounded-full
-
                                     bg-yellow-400/10
-
                                     text-yellow-300
                                 "
                             >
@@ -268,8 +220,8 @@ export default function NationalDayNotice({ lang = "vi" }) {
 
                             <span>
                                 {isEnglish
-                                    ? "Holiday: September 2, 2026"
-                                    : "Nghỉ lễ: 02/09/2026"}
+                                    ? "Holiday: August 29 - September 2, 2026"
+                                    : "Nghỉ: 29/08 - 02/09/2026"}
                             </span>
                         </div>
 
@@ -280,16 +232,12 @@ export default function NationalDayNotice({ lang = "vi" }) {
                                 flex
                                 items-center
                                 gap-3
-
                                 text-sm
                                 md:text-base
-
                                 font-semibold
                                 text-white/85
-
                                 transition-all
                                 duration-300
-
                                 hover:translate-x-2
                                 hover:text-yellow-300
                             "
@@ -302,21 +250,18 @@ export default function NationalDayNotice({ lang = "vi" }) {
                                     shrink-0
                                     items-center
                                     justify-center
-
                                     rounded-full
-
                                     bg-yellow-400/10
-
                                     text-yellow-300
                                 "
                             >
-                                ✈
+                                🔄
                             </span>
 
                             <span>
                                 {isEnglish
-                                    ? "Plan your travel in advance"
-                                    : "Chủ động kế hoạch di chuyển"}
+                                    ? "Make-up working day: Saturday, August 22, 2026"
+                                    : "Làm bù: Thứ Bảy 22/08/2026"}
                             </span>
                         </div>
 
@@ -327,16 +272,12 @@ export default function NationalDayNotice({ lang = "vi" }) {
                                 flex
                                 items-center
                                 gap-3
-
                                 text-sm
                                 md:text-base
-
                                 font-semibold
                                 text-white/85
-
                                 transition-all
                                 duration-300
-
                                 hover:translate-x-2
                                 hover:text-yellow-300
                             "
@@ -349,52 +290,62 @@ export default function NationalDayNotice({ lang = "vi" }) {
                                     shrink-0
                                     items-center
                                     justify-center
-
                                     rounded-full
-
                                     bg-yellow-400/10
-
                                     text-yellow-300
-                            "
+                                "
                             >
-                                !
+                                🏢
                             </span>
 
                             <span>
                                 {isEnglish
-                                    ? "Follow official announcements"
-                                    : "Theo dõi thông báo chính thức"}
+                                    ? "Businesses: September 2 + September 1 or September 3, according to the employer's announced plan"
+                                    : "Doanh nghiệp: Nghỉ 02/09 và thêm 01/09 hoặc 03/09 theo phương án của đơn vị"}
                             </span>
                         </div>
 
+                        {/* NOTE */}
+
+                        <div
+                            className="
+                                mt-5
+                                rounded-lg
+                                border
+                                border-yellow-500/10
+                                bg-yellow-400/[0.04]
+                                px-4
+                                py-3
+                                text-sm
+                                leading-relaxed
+                                text-white/60
+                            "
+                        >
+                            {isEnglish
+                                ? "Note: Schools, businesses and organizations with specific operating schedules may arrange holidays differently according to their applicable regulations and official announcements."
+                                : "Lưu ý: Trường học, doanh nghiệp và các đơn vị có lịch làm việc đặc thù có thể bố trí lịch nghỉ khác theo quy định và thông báo chính thức của từng đơn vị."}
+                        </div>
                     </div>
                 </div>
 
-                {/* =================================
-                    BOTTOM DECORATION
-                ================================== */}
+                {/* BOTTOM DECORATION */}
 
                 <div
                     className="
                         absolute
                         bottom-0
                         left-0
-
                         h-[2px]
                         w-0
-
                         bg-gradient-to-r
                         from-red-600
                         via-yellow-400
                         to-red-600
-
                         transition-all
                         duration-700
-
                         group-hover:w-full
                     "
                 />
-
             </div>
         </section>
     );

@@ -5,11 +5,9 @@ export const copy = {
         nav: [
             "Trang chủ",
             "Lịch sử",
-            "Sự kiện",
-            "Thông báo",
-            "Khuyến mãi",
+            "Tư liệu",
             "Thư viện",
-            "Liên hệ",
+            "Lời chúc",
         ],
 
         heroTitle: "CHÀO MỪNG\nQUỐC KHÁNH 2/9",
@@ -28,7 +26,7 @@ export const copy = {
 
         galleryTitle: "Thư viện hình ảnh",
 
-        contactTitle: "Liên hệ",
+        contactTitle: "Lời chúc",
 
         formTitle: "Gửi lời chúc đến Việt Nam",
     },
@@ -37,11 +35,9 @@ export const copy = {
         nav: [
             "Home",
             "History",
-            "Events",
-            "Notice",
-            "Offers",
+            "Documents",
             "Gallery",
-            "Contact",
+            "Wishes",
         ],
 
         heroTitle: "CELEBRATING\nVIETNAM NATIONAL DAY",
@@ -60,12 +56,11 @@ export const copy = {
 
         galleryTitle: "Gallery",
 
-        contactTitle: "Contact",
+        contactTitle: "Wishes",
 
         formTitle: "Send a Message to Vietnam",
     },
 };
-
 
 export const timeline = {
     vi: [{
@@ -239,107 +234,114 @@ export const timeline = {
     ],
 };
 
-
 export const features = {
     vi: [{
             title: "Độc lập",
-            text: "Chủ quyền dân tộc là nền tảng thiêng liêng để xây dựng một đất nước hòa bình, tự cường và phát triển."
+            text: "Chủ quyền dân tộc là nền tảng thiêng liêng để xây dựng một đất nước hòa bình, tự cường và phát triển.",
         },
         {
             title: "Tự do",
-            text: "Tự do là điều kiện để mỗi con người phát huy tài năng, sáng tạo và theo đuổi khát vọng."
+            text: "Tự do là điều kiện để mỗi con người phát huy tài năng, sáng tạo và theo đuổi khát vọng.",
         },
         {
             title: "Đoàn kết",
-            text: "Sức mạnh Việt Nam được tạo nên từ tinh thần đoàn kết của hàng triệu trái tim cùng chung lý tưởng."
+            text: "Sức mạnh Việt Nam được tạo nên từ tinh thần đoàn kết của hàng triệu trái tim cùng chung lý tưởng.",
         },
         {
             title: "Khát vọng phát triển",
-            text: "Không ngừng đổi mới để xây dựng một Việt Nam hiện đại, giàu mạnh, văn minh và hạnh phúc."
-        }
+            text: "Không ngừng đổi mới để xây dựng một Việt Nam hiện đại, giàu mạnh, văn minh và hạnh phúc.",
+        },
     ],
 
     en: [{
             title: "Independence",
-            text: "National sovereignty is the sacred foundation for building a peaceful, strong, and prosperous nation."
+            text: "National sovereignty is the sacred foundation for building a peaceful, strong, and prosperous nation.",
         },
         {
             title: "Freedom",
-            text: "Freedom empowers every individual to create, innovate, and pursue their aspirations."
+            text: "Freedom empowers every individual to create, innovate, and pursue their aspirations.",
         },
         {
             title: "Unity",
-            text: "Vietnam's strength comes from the unity of millions of people sharing the same vision."
+            text: "Vietnam's strength comes from the unity of millions of people sharing the same vision.",
         },
         {
             title: "Development",
-            text: "Continuous innovation drives Vietnam toward a modern, prosperous, civilized, and sustainable future."
-        }
-    ]
+            text: "Continuous innovation drives Vietnam toward a modern, prosperous, civilized, and sustainable future.",
+        },
+    ],
 };
 
 export const gallery = {
     vi: [{
             src: assetPath("images/codang1.jpg"),
             alt: "Cờ đỏ sao vàng tung bay",
-            title: "Cờ Tổ quốc"
+            title: "Cờ Tổ quốc",
         },
         {
-            src: assetPath("images/quang-truong-ba-dinh.jpg"),
+            src: assetPath(
+                "images/quang-truong-ba-dinh.jpg"
+            ),
             alt: "Quảng trường Ba Đình",
-            title: "Quảng trường Ba Đình"
+            title: "Quảng trường Ba Đình",
         },
         {
             src: assetPath("images/Lăng_Bác.jpg"),
             alt: "Lăng Chủ tịch Hồ Chí Minh",
-            title: "Lăng Chủ tịch Hồ Chí Minh"
+            title: "Lăng Chủ tịch Hồ Chí Minh",
         },
         {
-            src: assetPath("images/Bacdoctuyenngondoclap.jpeg"),
+            src: assetPath(
+                "images/Bacdoctuyenngondoclap.jpeg"
+            ),
             alt: "Bác Hồ đọc Tuyên ngôn Độc lập",
-            title: "Bác Hồ đọc Tuyên ngôn Độc lập"
+            title: "Bác Hồ đọc Tuyên ngôn Độc lập",
         },
         {
             src: assetPath("images/qkvn2.png"),
             alt: "Nơi Bác Hồ đọc bản tuyên ngôn độc lập",
-            title: "Âm vang độc lập"
+            title: "Âm vang độc lập",
         },
         {
             src: assetPath("images/content.png"),
             alt: "Chủ tịch Hồ Chí Minh vĩ đại bao quanh là nhân dân Việt Nam",
-            title: "Chủ tịch Hồ Chí Minh vĩ đại và nhân dân Việt Nam"
+            title: "Chủ tịch Hồ Chí Minh vĩ đại và nhân dân Việt Nam",
         },
     ],
 
     en: [{
             src: assetPath("images/codang1.jpg"),
             alt: "Vietnam National Flag",
-            title: "National Flag"
+            title: "National Flag",
         },
         {
-            src: assetPath("images/quang-truong-ba-dinh.jpg"),
+            src: assetPath(
+                "images/quang-truong-ba-dinh.jpg"
+            ),
             alt: "Ba Dinh Square",
-            title: "Ba Dinh Square"
+            title: "Ba Dinh Square",
         },
         {
             src: assetPath("images/Lăng_Bác.jpg"),
             alt: "Ho Chi Minh Mausoleum",
-            title: "Ho Chi Minh Mausoleum"
+            title: "Ho Chi Minh Mausoleum",
         },
         {
-            src: assetPath("images/Bacdoctuyenngondoclap.jpeg"),
+            src: assetPath(
+                "images/Bacdoctuyenngondoclap.jpeg"
+            ),
             alt: "President Ho Chi Minh reading the Declaration of Independence",
-            title: "Declaration of Independence"
+            title: "Declaration of Independence",
         },
         {
             src: assetPath("images/qkvn2.png"),
             alt: "The place where Uncle Ho read the Declaration of Independence",
-            title: "Independence Reverberation"
+            title: "Independence Reverberation",
         },
         {
             src: assetPath("images/content.png"),
             alt: "The great President Ho Chi Minh and the people of Vietnam",
-            title: "The great President Ho Chi Minh and the people of Vietnam"
+            title: "The great President Ho Chi Minh and the people of Vietnam",
         },
-    ]
+    ],
 };

@@ -3,26 +3,25 @@ import {
     Languages,
     Menu,
     Moon,
-    Music,
     Search,
     Sparkles,
     Sun,
     X,
 } from "lucide-react";
 
+import MusicPlayer from "./MusicPlayer";
+
 const ids = [
     "home",
-    "history",
     "events",
-    "notice",
-    "promotion",
+    "documents",
     "gallery",
     "contact",
 ];
 
 export default function Navbar({
     t,
-    lang,
+    lang = "vi",
     setLang,
     dark,
     setDark,
@@ -32,53 +31,105 @@ export default function Navbar({
     setFireworks,
 }) {
     const [open, setOpen] = useState(false);
-    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchOpen, setSearchOpen] =
+        useState(false);
     const [query, setQuery] = useState("");
-    const [scrolled, setScrolled] = useState(false);
+    const [scrolled, setScrolled] =
+        useState(false);
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 18);
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 18);
+        };
 
-        onScroll();
+        handleScroll();
 
-        window.addEventListener("scroll", onScroll, {
-            passive: true,
-        });
+        window.addEventListener(
+            "scroll",
+            handleScroll,
+            {
+                passive: true,
+            }
+        );
 
-        return () =>
+        return () => {
             window.removeEventListener(
                 "scroll",
-                onScroll
+                handleScroll
             );
+        };
     }, []);
 
     const text = {
         vi: {
             nav: "Điều hướng chính",
             brand: "Quốc Khánh Việt Nam",
+
             search: "Tìm kiếm",
-            searchLabel: "Tìm kiếm nội dung",
+            searchLabel:
+                "Tìm kiếm nội dung",
             searchPlaceholder: "Tìm...",
-            music: "Bật / tắt nhạc nền",
-            fireworks: "Bật / tắt pháo hoa",
+
+            fireworks:
+                "Bật / tắt pháo hoa",
+
             theme: "Đổi giao diện",
-            menu: "Mở menu",
+
+            menuOpen: "Mở menu",
+            menuClose: "Đóng menu",
+
+            language:
+                "Chuyển ngôn ngữ",
         },
 
         en: {
             nav: "Main Navigation",
             brand: "Vietnam National Day",
+
             search: "Search",
-            searchLabel: "Search content",
+            searchLabel:
+                "Search content",
             searchPlaceholder: "Search...",
-            music: "Toggle background music",
-            fireworks: "Toggle fireworks",
+
+            fireworks:
+                "Toggle fireworks",
+
             theme: "Toggle theme",
-            menu: "Open menu",
+
+            menuOpen: "Open menu",
+            menuClose: "Close menu",
+
+            language:
+                "Change language",
         },
     };
 
-    const ui = text[lang] || text.vi;
+    const ui =
+        text[lang] || text.vi;
+
+    const handleNavClick = () => {
+        setOpen(false);
+        setSearchOpen(false);
+    };
+
+    const handleBrandClick = () => {
+        setOpen(false);
+        setSearchOpen(false);
+    };
+
+    const handleLanguageChange = () => {
+        setLang(
+            lang === "vi"
+                ? "en"
+                : "vi"
+        );
+
+        setOpen(false);
+    };
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault();
+    };
 
     return (
         <header
@@ -92,10 +143,16 @@ export default function Navbar({
                 className="container max-w-content"
                 aria-label={ui.nav}
             >
+                {/* =========================
+                    BRAND
+                ========================== */}
                 <a
-                    className="brand"
                     href="#home"
+                    className="brand"
                     aria-label={ui.brand}
+                    onClick={
+                        handleBrandClick
+                    }
                 >
                     <span className="brand-mark">
                         ★
@@ -109,6 +166,9 @@ export default function Navbar({
                     </span>
                 </a>
 
+                {/* =========================
+                    NAV LINKS
+                ========================== */}
                 <div
                     className={`nav-links ${
                         open
@@ -116,25 +176,37 @@ export default function Navbar({
                             : ""
                     }`}
                 >
-                    {t.nav.map(
-                        (item, index) => (
-                            <a
-                                key={item}
-                                href={`#${ids[index]}`}
-                                onClick={() =>
-                                    setOpen(false)
-                                }
-                            >
-                                {item}
-                            </a>
-                        )
-                    )}
+                    {Array.isArray(t?.nav) &&
+                        t.nav
+                            .slice(0, 5)
+                            .map(
+                                (
+                                    item,
+                                    index
+                                ) => (
+                                    <a
+                                        key={`${item}-${index}`}
+                                        href={`#${ids[index]}`}
+                                        onClick={
+                                            handleNavClick
+                                        }
+                                    >
+                                        {
+                                            item
+                                        }
+                                    </a>
+                                )
+                            )}
                 </div>
 
+                {/* =========================
+                    ACTIONS
+                ========================== */}
                 <div
                     className="nav-actions"
                     aria-label={ui.nav}
                 >
+                    {/* SEARCH */}
                     <form
                         className={`site-search ${
                             searchOpen
@@ -142,83 +214,113 @@ export default function Navbar({
                                 : ""
                         }`}
                         role="search"
-                        onSubmit={(e) =>
-                            e.preventDefault()
+                        onSubmit={
+                            handleSearchSubmit
                         }
                     >
                         <label
                             className="sr-only"
                             htmlFor="site-search"
                         >
-                            {ui.searchLabel}
+                            {
+                                ui.searchLabel
+                            }
                         </label>
 
                         <input
                             id="site-search"
+                            type="search"
                             value={query}
-                            onChange={(e) =>
+                            onChange={(event) =>
                                 setQuery(
-                                    e.target.value
+                                    event.target
+                                        .value
                                 )
                             }
                             placeholder={
                                 ui.searchPlaceholder
                             }
+                            autoComplete="off"
                         />
 
-                        {query && (
-                            <span>
-                                {query.length}
+                        {query.length > 0 && (
+                            <span
+                                aria-hidden="true"
+                            >
+                                {
+                                    query.length
+                                }
                             </span>
                         )}
                     </form>
 
                     <button
-                        className="icon-btn d-none d-md-inline-flex"
                         type="button"
-                        aria-label={ui.search}
-                        aria-expanded={searchOpen}
+                        className="icon-btn d-none d-md-inline-flex"
+                        aria-label={
+                            ui.search
+                        }
+                        aria-expanded={
+                            searchOpen
+                        }
                         onClick={() =>
                             setSearchOpen(
-                                !searchOpen
+                                (prev) =>
+                                    !prev
                             )
                         }
                     >
                         <Search size={18} />
                     </button>
 
-                    <button
-                        className="icon-btn"
-                        type="button"
-                        aria-label={ui.music}
-                        aria-pressed={music}
-                        onClick={() =>
-                            setMusic(!music)
-                        }
-                    >
-                        <Music size={18} />
-                    </button>
+                    {/* =========================
+                        MUSIC
+                    ========================== */}
+                    <MusicPlayer
+                        music={music}
+                        setMusic={setMusic}
+                        lang={lang}
+                    />
 
+                    {/* =========================
+                        FIREWORKS
+                    ========================== */}
                     <button
-                        className="icon-btn"
                         type="button"
-                        aria-label={ui.fireworks}
-                        aria-pressed={fireworks}
+                        className={`icon-btn ${
+                            fireworks
+                                ? "icon-btn--active"
+                                : ""
+                        }`}
+                        aria-label={
+                            ui.fireworks
+                        }
+                        aria-pressed={
+                            fireworks
+                        }
                         onClick={() =>
                             setFireworks(
-                                !fireworks
+                                (prev) =>
+                                    !prev
                             )
                         }
                     >
                         <Sparkles size={18} />
                     </button>
 
+                    {/* =========================
+                        THEME
+                    ========================== */}
                     <button
-                        className="icon-btn"
                         type="button"
+                        className="icon-btn"
                         aria-label={ui.theme}
+                        aria-pressed={dark}
                         onClick={() =>
-                            setDark(!dark)
+                            setDark(
+                                (prev) =>
+                                    !prev
+                            )
                         }
                     >
                         {dark ? (
@@ -228,28 +330,43 @@ export default function Navbar({
                         )}
                     </button>
 
+                    {/* =========================
+                        LANGUAGE
+                    ========================== */}
                     <button
-                        className="lang-btn"
                         type="button"
-                        onClick={() =>
-                            setLang(
-                                lang === "vi"
-                                    ? "en"
-                                    : "vi"
-                            )
+                        className="lang-btn"
+                        aria-label={
+                            ui.language
+                        }
+                        onClick={
+                            handleLanguageChange
                         }
                     >
                         <Languages size={16} />
-                        {lang.toUpperCase()}
+
+                        <span>
+                            {lang.toUpperCase()}
+                        </span>
                     </button>
 
+                    {/* =========================
+                        MOBILE MENU
+                    ========================== */}
                     <button
-                        className="icon-btn nav-toggle"
                         type="button"
-                        aria-label={ui.menu}
+                        className="icon-btn nav-toggle"
+                        aria-label={
+                            open
+                                ? ui.menuClose
+                                : ui.menuOpen
+                        }
                         aria-expanded={open}
                         onClick={() =>
-                            setOpen(!open)
+                            setOpen(
+                                (prev) =>
+                                    !prev
+                            )
                         }
                     >
                         {open ? (

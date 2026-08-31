@@ -14,7 +14,7 @@ const members = [
         },
         facebook: "https://www.facebook.com/quan.le.51371/",
         tiktok: "https://www.tiktok.com/@hong.qun5396",
-        discord: "https://discord.com/users/1361694396503953508",
+        discord: "https://discord.com/users/1501554794366636254",
     },
     {
         name: "Phan Hữu Đăng",
@@ -22,7 +22,7 @@ const members = [
             vi: "Designer",
             en: "Designer",
         },
-        image: "./images/member2.jpg",
+        image: "./images/member2.webp",
         description: {
             vi: "Cùng đóng góp ý tưởng và phát triển dự án Quốc Khánh Việt Nam.",
             en: "Contributing ideas and helping develop the Vietnamese National Day project.",
@@ -30,6 +30,34 @@ const members = [
         facebook: "https://www.facebook.com/profile.php?id=61587307526044",
         tiktok: "https://www.tiktok.com/@dang.0812",
         discord: "https://discord.com/users/1445288199642415155",
+    },{
+        name: "Lê Duy Nhật Quân",
+        role: {
+            vi: "Media Designer",
+            en: "Media Designer",
+        },
+        image: "./images/member.webp",
+        description: {
+            vi: "Cùng đóng góp ý tưởng và phát triển dự án Quốc Khánh Việt Nam.",
+            en: "Contributing ideas and helping develop the Vietnamese National Day project.",
+        },
+        facebook: "https://www.facebook.com/quan.le.121702/",
+        tiktok: "https://www.tiktok.com/@lahmainho",
+        discord: "https://discord.com/users/1104253661149921291",
+    },{
+        name: "Lê Thanh Chi",
+        role: {
+            vi: "Media",
+            en: "Media",
+        },
+        image: "./images/member4.webp",
+        description: {
+            vi: "Cùng đóng góp ý tưởng và phát triển dự án Quốc Khánh Việt Nam.",
+            en: "Contributing ideas and helping develop the Vietnamese National Day project.",
+        },
+        facebook: "https://www.facebook.com/",
+        tiktok: "https://www.tiktok.com/@user",
+        discord: "https://discord.com/users/1361694396503953508",
     },
 ];
 

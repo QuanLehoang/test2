@@ -54,9 +54,7 @@ export default function Contact({ t, lang = "vi" }) {
             emailPlaceholder: "ten@gmail.com",
 
             message: "Thông điệp",
-
-            defaultMessage:
-                "Chúc mừng Quốc Khánh Việt Nam 2/9!",
+            messagePlaceholder: "Hãy gửi những lời chúc để lan tỏa tinh thần yêu nước Việt Nam!",
 
             send: "Gửi lời chúc",
             sending: "Đang gửi...",
@@ -77,10 +75,10 @@ export default function Contact({ t, lang = "vi" }) {
                 "Ba Đình, Hà Nội, Việt Nam",
 
             emailAddress:
-                "hello@quockhanhvietnam.vn",
+                "codeforge@gmail.com",
 
             phone:
-                "+84 24 0902 1945",
+                "+84 365 163 762",
 
             map:
                 "Bản đồ khu vực Ba Đình, Hà Nội",

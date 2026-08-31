@@ -95,11 +95,8 @@ export default function Timeline({ lang = "vi" }) {
 
     const description = isEnglish
         ? "From the historic independence of 1945 to today, the spirit of National Day continues to inspire peace, unity, and development."
-        : "85 năm từ mùa thu độc lập năm 1945 đến hôm nay, tinh thần Quốc khánh là nguồn cảm hứng cho hòa bình, đoàn kết và phát triển.";
+        : "Từ mùa thu độc lập năm 1945 đến hôm nay, tinh thần Quốc khánh tiếp tục là nguồn cảm hứng cho hòa bình, đoàn kết và phát triển.";
 
-    /*
-     * Animation khi timeline xuất hiện trên màn hình
-     */
     useEffect(() => {
         const container = timelineRef.current;
 
@@ -145,10 +142,7 @@ export default function Timeline({ lang = "vi" }) {
                 overflow-hidden
             "
         >
-            {/* =========================================
-                BACKGROUND GLOW
-            ========================================== */}
-
+            {/* Background glow */}
             <div
                 className="
                     pointer-events-none
@@ -183,11 +177,7 @@ export default function Timeline({ lang = "vi" }) {
             />
 
             <div className="container mx-auto px-4 relative z-10">
-
-                {/* =========================================
-                    HEADER
-                ========================================== */}
-
+                {/* Header */}
                 <div
                     className="
                         text-center
@@ -239,10 +229,7 @@ export default function Timeline({ lang = "vi" }) {
                     </p>
                 </div>
 
-                {/* =========================================
-                    TIMELINE
-                ========================================== */}
-
+                {/* Timeline */}
                 <div
                     ref={timelineRef}
                     className="
@@ -251,7 +238,6 @@ export default function Timeline({ lang = "vi" }) {
                         mx-auto
                     "
                 >
-
                     {/* Desktop line */}
                     <div
                         className="
@@ -301,117 +287,80 @@ export default function Timeline({ lang = "vi" }) {
                         />
                     </div>
 
-                    {/* =====================================
-                        TIMELINE ITEMS
-                    ====================================== */}
-
+                    {/* Timeline items */}
                     {timeline.map((item, index) => {
                         const isLeft = index % 2 === 0;
 
                         return (
                             <div
                                 key={item.year}
-                                className={`
+                                className="
                                     timeline-animated-item
-
                                     relative
                                     grid
                                     grid-cols-1
                                     md:grid-cols-2
-
                                     gap-4
                                     md:gap-16
-
                                     mb-10
                                     md:mb-20
-
                                     pl-8
                                     md:pl-0
-
                                     opacity-0
                                     translate-y-10
-
                                     transition-all
                                     duration-1000
                                     ease-out
-                                `}
+                                "
                                 style={{
                                     transitionDelay: `${index * 120}ms`,
                                 }}
                             >
-
-                                {/* =================================
-                                    MOBILE DOT
-                                ================================== */}
-
+                                {/* Mobile dot */}
                                 <div
                                     className="
                                         md:hidden
                                         absolute
                                         left-[4px]
                                         top-[7px]
-
                                         w-[13px]
                                         h-[13px]
-
                                         rounded-full
-
                                         bg-red-600
-
                                         ring-4
                                         ring-white
                                         dark:ring-[#160b09]
-
                                         shadow-[0_0_18px_rgba(218,37,29,0.75)]
-
                                         animate-pulse
                                     "
                                 />
 
-                                {/* =================================
-                                    DESKTOP DOT
-                                ================================== */}
-
+                                {/* Desktop dot */}
                                 <div
                                     className="
                                         hidden
                                         md:block
-
                                         absolute
                                         left-1/2
                                         top-7
-
                                         -translate-x-1/2
-
                                         w-4
                                         h-4
-
                                         rounded-full
-
                                         bg-red-600
-
                                         ring-4
                                         ring-white
                                         dark:ring-[#160b09]
-
                                         shadow-[0_0_20px_rgba(218,37,29,0.8)]
-
                                         z-20
-
-                                        transition-all
-                                        duration-500
                                     "
                                 />
 
-                                {/* =================================
-                                    YEAR
-                                ================================== */}
-
+                                {/* Year */}
                                 <div
                                     className={`
                                         flex
                                         items-start
-
                                         ${
                                             isLeft
                                                 ? "md:justify-end md:text-right"
@@ -426,29 +375,23 @@ export default function Timeline({ lang = "vi" }) {
                                             italic
                                             tracking-[-0.05em]
                                             leading-none
-
                                             text-5xl
                                             sm:text-6xl
                                             md:text-6xl
                                             lg:text-7xl
-
                                             text-transparent
                                             bg-clip-text
                                             bg-gradient-to-b
                                             from-red-500
                                             via-red-600
                                             to-red-800
-
                                             select-none
                                             cursor-default
-
                                             transition-all
                                             duration-500
                                             ease-out
-
                                             hover:scale-110
                                             hover:-translate-y-1
-
                                             drop-shadow-[0_5px_15px_rgba(218,37,29,0.18)]
                                             hover:drop-shadow-[0_8px_25px_rgba(218,37,29,0.45)]
                                         "
@@ -457,10 +400,7 @@ export default function Timeline({ lang = "vi" }) {
                                     </div>
                                 </div>
 
-                                {/* =================================
-                                    CARD
-                                ================================== */}
-
+                                {/* Card */}
                                 <div
                                     className={
                                         isLeft
@@ -472,62 +412,43 @@ export default function Timeline({ lang = "vi" }) {
                                         className="
                                             group
                                             relative
-
                                             w-full
-
                                             rounded-2xl
-
                                             p-5
                                             sm:p-6
                                             md:p-8
-
                                             bg-white/80
                                             dark:bg-white/5
-
                                             border
                                             border-red-600/10
-
                                             shadow-lg
-
                                             backdrop-blur-md
-
                                             overflow-hidden
-
                                             transition-all
                                             duration-500
                                             ease-out
-
                                             hover:-translate-y-2
                                             hover:scale-[1.015]
-
                                             hover:shadow-[0_20px_50px_rgba(218,37,29,0.15)]
-
                                             hover:border-red-600/30
                                         "
                                     >
-
                                         {/* Light sweep */}
                                         <div
                                             className="
                                                 pointer-events-none
-
                                                 absolute
                                                 top-0
                                                 left-[-100%]
-
                                                 w-[60%]
                                                 h-full
-
                                                 bg-gradient-to-r
                                                 from-transparent
                                                 via-white/20
                                                 to-transparent
-
                                                 skew-x-[-20deg]
-
                                                 transition-all
                                                 duration-700
-
                                                 group-hover:left-[130%]
                                             "
                                         />
@@ -538,46 +459,31 @@ export default function Timeline({ lang = "vi" }) {
                                                 relative
                                                 inline-flex
                                                 items-center
-
                                                 px-3
                                                 py-1
-
                                                 mb-4
-
                                                 rounded-full
-
                                                 bg-red-600/10
                                                 text-red-600
-
                                                 text-xs
                                                 font-bold
-
                                                 tracking-wider
                                             "
                                         >
                                             {item.year}
                                         </div>
 
-                                        {/* =================================
-                                            ONLY ONE LANGUAGE
-                                        ================================== */}
-
                                         <h3
                                             className="
                                                 relative
-
                                                 text-xl
                                                 sm:text-2xl
                                                 md:text-2xl
                                                 lg:text-3xl
-
                                                 font-bold
-
                                                 leading-tight
-
                                                 transition-colors
                                                 duration-300
-
                                                 group-hover:text-red-600
                                             "
                                         >
@@ -589,16 +495,12 @@ export default function Timeline({ lang = "vi" }) {
                                         <p
                                             className="
                                                 relative
-
                                                 mt-3
                                                 md:mt-4
-
                                                 text-[15px]
                                                 sm:text-base
                                                 md:text-lg
-
                                                 leading-relaxed
-
                                                 opacity-80
                                             "
                                         >
@@ -613,22 +515,17 @@ export default function Timeline({ lang = "vi" }) {
                                                 absolute
                                                 bottom-0
                                                 left-0
-
                                                 h-[2px]
                                                 w-0
-
                                                 bg-gradient-to-r
                                                 from-red-600
                                                 via-yellow-400
                                                 to-transparent
-
                                                 transition-all
                                                 duration-500
-
                                                 group-hover:w-full
                                             "
                                         />
-
                                     </article>
                                 </div>
                             </div>
@@ -636,10 +533,6 @@ export default function Timeline({ lang = "vi" }) {
                     })}
                 </div>
             </div>
-
-            {/* =========================================
-                LOCAL ANIMATION
-            ========================================== */}
 
             <style>
                 {`

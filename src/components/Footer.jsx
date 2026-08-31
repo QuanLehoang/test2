@@ -1,30 +1,13 @@
-import { ArrowUp, Heart } from "lucide-react";
-
 export default function Footer({ lang }) {
-
-    const year = new Date().getFullYear();
-
     const text = {
         vi: {
             brand: "Quốc Khánh Việt Nam",
-            copyright: "Quốc Khánh Việt Nam.",
-            made: "Được tạo với",
-            for: "dành cho Việt Nam.",
-            links: "Liên kết chân trang",
-            contact: "Liên hệ",
-            reference: "Tham khảo",
-            top: "Trở về đầu trang",
+            creator: "@Lược sử và Source code",
         },
 
         en: {
             brand: "Vietnam National Day",
-            copyright: "Vietnam National Day.",
-            made: "Made with",
-            for: "for Vietnam.",
-            links: "Footer Links",
-            contact: "Contact",
-            reference: "Reference",
-            top: "Back to top",
+            creator: "@Lược sử và Source code",
         },
     };
 
@@ -32,14 +15,14 @@ export default function Footer({ lang }) {
 
     return (
         <footer className="footer">
-
             <div className="container max-w-content">
-
                 <div className="footer-inner">
 
+                    {/* Bên trái */}
                     <a
                         className="brand"
                         href="#home"
+                        aria-label={t.brand}
                     >
                         <span className="brand-mark">
                             ★
@@ -50,47 +33,25 @@ export default function Footer({ lang }) {
                         </span>
                     </a>
 
-                    <p>
-                        © {year} {t.copyright} {t.made}{" "}
-                        <Heart
-                            size={16}
-                            fill="currentColor"
-                            aria-hidden="true"
-                        />{" "}
-                        {t.for}
-                    </p>
+                    {/* Bên phải - Nhà sáng tạo */}
+                    <div className="footer-links">
 
-                    <div
-                        className="footer-links"
-                        aria-label={t.links}
-                    >
+                        <span>
+                            {t.creator}
+                        </span>
 
-                        <a href="#contact">
-                            {t.contact}
-                        </a>
-
-                        <a href="https://github.com/quanlehoang/test">
-                            GitHub
-                        </a>
-
-                        <a href="https://vi.wikipedia.org/wiki/Ngày_Quốc_khánh_(Việt_Nam)">
-                            {t.reference}
+                        <a
+                            href="https://github.com/quanlehoang/test2"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {t.source}
                         </a>
 
                     </div>
 
-                    <a
-                        className="back-top"
-                        href="#home"
-                        aria-label={t.top}
-                    >
-                        <ArrowUp size={20} />
-                    </a>
-
                 </div>
-
             </div>
-
         </footer>
     );
 }
