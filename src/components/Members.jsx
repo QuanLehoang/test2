@@ -7,7 +7,7 @@ const members = [
             vi: "Founder & Developer",
             en: "Founder & Developer",
         },
-        image: "./images/member1.jpg",
+        image: `${import.meta.env.BASE_URL}images/quandeptrai.jpg`,
         description: {
             vi: "Người xây dựng và phát triển website Quốc Khánh Việt Nam.",
             en: "The creator and developer behind the Vietnamese National Day website.",
@@ -16,13 +16,14 @@ const members = [
         tiktok: "https://www.tiktok.com/@hong.qun5396",
         discord: "https://discord.com/users/1501554794366636254",
     },
+
     {
         name: "Phan Hữu Đăng",
         role: {
             vi: "Designer",
             en: "Designer",
         },
-        image: "./images/member2.webp",
+        image: `${import.meta.env.BASE_URL}images/membergay.webp`,
         description: {
             vi: "Cùng đóng góp ý tưởng và phát triển dự án Quốc Khánh Việt Nam.",
             en: "Contributing ideas and helping develop the Vietnamese National Day project.",
@@ -30,13 +31,15 @@ const members = [
         facebook: "https://www.facebook.com/profile.php?id=61587307526044",
         tiktok: "https://www.tiktok.com/@dang.0812",
         discord: "https://discord.com/users/1445288199642415155",
-    },{
+    },
+
+    {
         name: "Lê Duy Nhật Quân",
         role: {
             vi: "Media Designer",
             en: "Media Designer",
         },
-        image: "./images/member.webp",
+        image: `${import.meta.env.BASE_URL}images/tuat.webp`,
         description: {
             vi: "Cùng đóng góp ý tưởng và phát triển dự án Quốc Khánh Việt Nam.",
             en: "Contributing ideas and helping develop the Vietnamese National Day project.",
@@ -44,13 +47,15 @@ const members = [
         facebook: "https://www.facebook.com/quan.le.121702/",
         tiktok: "https://www.tiktok.com/@lahmainho",
         discord: "https://discord.com/users/1104253661149921291",
-    },{
+    },
+
+    {
         name: "Lê Thanh Chi",
         role: {
             vi: "Media",
             en: "Media",
         },
-        image: "./images/member4.webp",
+        image: `${import.meta.env.BASE_URL}images/member4.webp`,
         description: {
             vi: "Cùng đóng góp ý tưởng và phát triển dự án Quốc Khánh Việt Nam.",
             en: "Contributing ideas and helping develop the Vietnamese National Day project.",
@@ -72,6 +77,13 @@ export default function Members({ lang = "vi" }) {
             subtitle:
                 "Một dự án được tạo nên từ sự sáng tạo, đam mê và tinh thần Việt Nam.",
             member: "THÀNH VIÊN",
+
+            creatorKicker: "NHÀ SÁNG TẠO",
+            creatorTitle: "Được tạo nên bởi",
+            creatorName: "Lược sử và source code",
+            creatorDescription:
+                "Người đứng phía sau ý tưởng và định hướng của dự án Quốc Khánh Việt Nam, với mong muốn tạo nên một không gian số mang đậm tinh thần dân tộc.",
+            creatorButton: "Xem trang cá nhân",
         },
 
         en: {
@@ -81,6 +93,13 @@ export default function Members({ lang = "vi" }) {
             subtitle:
                 "A project built with creativity, passion and the spirit of Vietnam.",
             member: "MEMBER",
+
+            creatorKicker: "CREATOR",
+            creatorTitle: "Created by",
+            creatorName: "Lược sử và source code",
+            creatorDescription:
+                "The person behind the idea and direction of the Vietnamese National Day project, creating a digital space that reflects the spirit of Vietnam.",
+            creatorButton: "View profile",
         },
     };
 
@@ -89,7 +108,10 @@ export default function Members({ lang = "vi" }) {
     return (
         <section className="members" id="members">
 
-            {/* HEADER */}
+            {/* =========================
+                HEADER
+            ========================== */}
+
             <div className="members-header">
 
                 <div className="members-kicker">
@@ -104,6 +126,7 @@ export default function Members({ lang = "vi" }) {
 
                 <h2>
                     {currentText.title}
+
                     <span>
                         {currentText.titleHighlight}
                     </span>
@@ -116,7 +139,10 @@ export default function Members({ lang = "vi" }) {
             </div>
 
 
-            {/* CARDS */}
+            {/* =========================
+                MEMBERS
+            ========================== */}
+
             <div className="members-list">
 
                 {members.map((member, index) => (
@@ -131,7 +157,6 @@ export default function Members({ lang = "vi" }) {
 
                         {/* Shine */}
                         <div className="member-shine" />
-
 
                         {/* Number */}
                         <span className="member-index">
@@ -148,6 +173,13 @@ export default function Members({ lang = "vi" }) {
                                     src={member.image}
                                     alt={member.name}
                                     className="member-image"
+                                    loading="lazy"
+                                    onError={(e) => {
+                                        console.error(
+                                            "Không tìm thấy ảnh:",
+                                            member.image
+                                        );
+                                    }}
                                 />
 
                             </div>
@@ -183,62 +215,69 @@ export default function Members({ lang = "vi" }) {
                             </p>
 
 
+                            {/* Social */}
                             <div className="member-actions">
 
-    {/* FACEBOOK */}
-    <a
-        href={member.facebook}
-        target="_blank"
-        rel="noreferrer"
-        className="member-social"
-        aria-label="Facebook"
-    >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-                fill="currentColor"
-                d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1z"
-            />
-        </svg>
-    </a>
+                                {/* FACEBOOK */}
+                                <a
+                                    href={member.facebook}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="member-social"
+                                    aria-label="Facebook"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1z"
+                                        />
+                                    </svg>
+                                </a>
 
 
-    {/* TIKTOK */}
-    <a
-        href={member.tiktok}
-        target="_blank"
-        rel="noreferrer"
-        className="member-social"
-        aria-label="TikTok"
-    >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-                fill="currentColor"
-                d="M16.6 5.8a4.8 4.8 0 0 0 3 1v3.2a8 8 0 0 1-3-.6v6.1a5.5 5.5 0 1 1-4.7-5.4v3.3a2.2 2.2 0 1 0 1.5 2.1V3h3.2z"
-            />
-        </svg>
-    </a>
+                                {/* TIKTOK */}
+                                <a
+                                    href={member.tiktok}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="member-social"
+                                    aria-label="TikTok"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M16.6 5.8a4.8 4.8 0 0 0 3 1v3.2a8 8 0 0 1-3-.6v6.1a5.5 5.5 0 1 1-4.7-5.4v3.3a2.2 2.2 0 1 0 1.5 2.1V3h3.2z"
+                                        />
+                                    </svg>
+                                </a>
 
 
-    {/* DISCORD */}
-    <a
-        href={member.discord}
-        target="_blank"
-        rel="noreferrer"
-        className="member-social"
-        aria-label="Discord"
-    >
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-        >
-            <path
-                fill="currentColor"
-                d="M19.54 5.1A16.9 16.9 0 0 0 15.36 4l-.52 1.06a15.6 15.6 0 0 0-5.68 0L8.64 4a16.9 16.9 0 0 0-4.18 1.1C1.82 8.97 1.1 12.72 1.47 16.42a16.9 16.9 0 0 0 5.13 2.6l1.24-1.68c-.68-.24-1.33-.54-1.94-.89l.47-.36c3.74 1.72 7.78 1.72 11.48 0l.48.36c-.62.35-1.27.65-1.95.89l1.24 1.68a16.9 16.9 0 0 0 5.13-2.6c.43-4.29-.73-8-3.21-11.32zM8.77 14.4c-1.1 0-2-.99-2-2.21s.88-2.21 2-2.21 2 .99 2 2.21-.9 2.21-2 2.21zm6.46 0c-1.1 0-2-.99-2-2.21s.88-2.21 2-2.21 2 .99 2 2.21-.9 2.21-2 2.21z"
-            />
-        </svg>
-    </a>
+                                {/* DISCORD */}
+                                <a
+                                    href={member.discord}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="member-social"
+                                    aria-label="Discord"
+                                >
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M19.54 5.1A16.9 16.9 0 0 0 15.36 4l-.52 1.06a15.6 15.6 0 0 0-5.68 0L8.64 4a16.9 16.9 0 0 0-4.18 1.1C1.82 8.97 1.1 12.72 1.47 16.42a16.9 16.9 0 0 0 5.13 2.6l1.24-1.68c-.68-.24-1.33-.54-1.94-.89l.47-.36c3.74 1.72 7.78 1.72 11.48 0l.48.36c-.62.35-1.27.65-1.95.89l1.24 1.68a16.9 16.9 0 0 0 5.13-2.6c.43-4.29-.73-8-3.21-11.32zM8.77 14.4c-1.1 0-2-.99-2-2.21s.88-2.21 2-2.21 2 .99 2 2.21-.9 2.21-2 2.21zm6.46 0c-1.1 0-2-.99-2-2.21s.88-2.21 2-2.21 2 .99 2 2.21-.9 2.21-2 2.21z"
+                                        />
+                                    </svg>
+                                </a>
 
-</div>
+                            </div>
 
                         </div>
 
@@ -251,6 +290,61 @@ export default function Members({ lang = "vi" }) {
                     </article>
 
                 ))}
+
+            </div>
+
+
+            {/* =========================
+                CREATOR
+            ========================== */}
+
+            <div className="creator-card">
+
+                <div className="creator-card-glow" />
+
+                <div className="creator-card-content">
+
+                    <div className="creator-card-kicker">
+                        <span className="members-kicker-line" />
+
+                        <span>
+                            {currentText.creatorKicker}
+                        </span>
+
+                        <span className="members-kicker-line" />
+                    </div>
+
+
+                    <h3>
+                        {currentText.creatorTitle}{" "}
+
+                        <span>
+                            {currentText.creatorName}
+                        </span>
+                    </h3>
+
+
+                    <p>
+                        {currentText.creatorDescription}
+                    </p>
+
+
+                    <a
+                        href="https://www.facebook.com/profile.php?id=61593428656821"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="creator-button"
+                    >
+                        <span>
+                            {currentText.creatorButton}
+                        </span>
+
+                        <span className="creator-button-arrow">
+                            ↗
+                        </span>
+                    </a>
+
+                </div>
 
             </div>
 
